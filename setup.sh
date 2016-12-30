@@ -19,6 +19,8 @@ else
 	echo "Skipping setup for ~/.bashrc"
 fi
 
+cp etc/gitconfig ~/.gitconfig
+
 if [ -d ~/.bash-git-prompt ]; then
 	echo "Skipping setup of bash git prompt"
 else
