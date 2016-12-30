@@ -8,7 +8,7 @@ if [ -d $SCRIPT_DIR/temp ]; then
 fi
 mkdir $SCRIPT_DIR/temp
 
-PACKAGES="git vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip vlc"
+PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc"
 echo "Installing packages: $PACKAGES"
 sudo apt install $PACKAGES
 
