@@ -3,8 +3,10 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Initializing temp directory..."
-mkdir -p temp
-rm -r temp/*
+if [ -d $SCRIPT_DIR/temp ]; then
+	rm -rf $SCRIPT_DIR/temp
+fi
+mkdir $SCRIPT_DIR/temp
 
 PACKAGES="git vim xclip"
 echo "Installing packages: $PACKAGES"
