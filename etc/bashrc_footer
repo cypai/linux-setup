@@ -1,0 +1,27 @@
+ulimit -v 6000000
+
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+
+export JAVA_OPTIONS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=800,suspend=n"
+export MAVEN_OPTS="-Xms512m -Xmx512m"
+
+alias crontab="crontab -i"
+alias aka="grep ^alias ~/.bashrc"
+alias down="cd ~/Downloads"
+alias doc="cd ~/Documents"
+alias ls="ls --color=auto"
+alias cgit="cd ~/cgit"
+alias work="cd ~/work"
+
+alias ppas="grep -r --include '*.list' '^deb ' /etc/apt/ | sed -re 's/^\/etc\/apt\/sources\.list((\.d\/)?|(:)?)//' -e 's/(.*\.list):/\[\1\] /' -e 's/deb http:\/\/ppa.launchpad.net\/(.*?)\/ubuntu .*/ppa:\1/'"
+
+goto() {
+        cd ~/cgit/$1
+}
+_goto() {
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=( $(compgen -W "$(ls ~/cgit/)" -- $cur) )
+}
+complete -F _goto goto
+

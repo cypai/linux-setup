@@ -14,9 +14,7 @@ sudo apt install $PACKAGES
 
 if [ "$(grep -c aka ~/.bashrc)" -eq "0" ]; then
 	echo "Setting up ~/.bashrc ..."
-	wget -O temp/bashrc_footer https://gist.githubusercontent.com/cypai/d74f5de78fa13f6e20c19fc502691c85/raw/e6a3683da00e44359d70ce82649f3ec45dc4ae7d/.bashrc
-	cat temp/bashrc_footer >> ~/.bashrc
-	echo "" >> ~/.bashrc
+	cat etc/bashrc_footer >> ~/.bashrc
 else
 	echo "Skipping setup for ~/.bashrc"
 fi
