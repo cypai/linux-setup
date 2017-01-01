@@ -10,7 +10,7 @@ if [ -d temp ]; then
 fi
 mkdir temp
 
-PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc"
+PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full"
 echo "Installing packages: $PACKAGES"
 sudo apt install $PACKAGES
 
@@ -33,7 +33,11 @@ fi
 #mkdir -p ~/.vim
 #rsync -a etc/vim/indent ~/.vim
 
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
+if [ -d ~/.vim_runtime ]; then
+    echo "Skipping install of vim runtime"
+else
+    git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+    sh ~/.vim_runtime/install_awesome_vimrc.sh
+fi
 
 cd $CURR_DIR
