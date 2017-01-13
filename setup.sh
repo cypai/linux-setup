@@ -10,7 +10,7 @@ if [ -d temp ]; then
 fi
 mkdir temp
 
-PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper"
+PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev"
 echo "Installing packages: $PACKAGES"
 sudo apt install $PACKAGES
 
