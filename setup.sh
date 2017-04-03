@@ -11,7 +11,7 @@ fi
 mkdir temp
 
 sudo apt update
-PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev"
+PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev filezilla ncftp"
 echo "Installing packages: $PACKAGES"
 sudo apt install $PACKAGES
 
