@@ -25,3 +25,15 @@ lvcreate -L 16G -n var lmhdd
 
 Start installing Linux Mint:
 DON'T SELECT DEFAULT OPTIONS! Follow the partition setup as described above.
+
+Run linux-setup from Git repo
+
+The following was done after install:
+lvcreate -L 100G -n home lmhdd
+sudo mkfs.ext4 /dev/lmhdd/home
+
+Edit /etc/fstab and add the following:
+/dev/mapper/lmhdd-home /hdd            ext4    defaults        0       2
+
+Add symbolic links to hdd:
+ln -s ~/hdd /hdd
