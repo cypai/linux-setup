@@ -1,0 +1,27 @@
+Reference
+/dev/sda: SSD
+/dev/sdb: HDD
+
+Instructions:
+Run GParted during ISO boot
+Create /dev/sda1 as ext2 with label "boot"
+Create /dev/sda2 as an Extended Partition
+Create /dev/sda5 as unformatted
+Apply
+Create /dev/sdb1 as an Extended Partition
+Create /dev/sdb5 as unformatted
+Apply
+
+Start setting up LVM:
+pvcreate /dev/sda5 # Physical volume on sda
+pvcreate /dev/sdb5 # Physical volume on sdb
+vgcreate lmsdd /dev/sda5 #
+vgcreate lmhdd /dev/sdb5
+lvcreate -L 16G -n root lmsdd
+lvcreate -L 32G -n home lmsdd
+lvcreate -L 8G -n swap lmhdd
+lvcreate -L 16G -n tmp lmhdd
+lvcreate -L 16G -n var lmhdd
+
+Start installing Linux Mint:
+DON'T SELECT DEFAULT OPTIONS! Follow the partition setup as described above.
