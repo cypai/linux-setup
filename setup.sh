@@ -11,7 +11,7 @@ fi
 mkdir temp
 
 sudo apt update
-PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev filezilla ncftp"
+PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev filezilla ncftp redshift redshift-gtk geoclue-2.0"
 echo "Installing packages: $PACKAGES"
 sudo apt install $PACKAGES
 
