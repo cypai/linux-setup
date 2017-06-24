@@ -19,6 +19,12 @@ alias work="cd ~/work"
 alias mem-monitor="/home/cpai/cgit/mem-monitor/mem-monitor.sh"
 alias upgradable="apt list --upgradable"
 
+alias src="source ~/.bashrc"
+
+alias dsfz="filezilla -c 0/ds"
+
+alias xclip="xclip -selection c"
+
 alias ppas="grep -r --include '*.list' '^deb ' /etc/apt/ | sed -re 's/^\/etc\/apt\/sources\.list((\.d\/)?|(:)?)//' -e 's/(.*\.list):/\[\1\] /' -e 's/deb http:\/\/ppa.launchpad.net\/(.*?)\/ubuntu .*/ppa:\1/'"
 
 goto() {
