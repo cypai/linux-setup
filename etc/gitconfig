@@ -11,7 +11,7 @@
         rb = rebase
         rbm = rebase -i master
         rbc = rebase --continue
-        rsth = "!f() { echo 'Hard resetting back to HEAD~$1... Current commit hash: ' && git rev-parse HEAD && git reset --hard HEAD~$1; }; f"
+        rsth = reset --hard
         undo = reset --soft HEAD~1
         stat = status -s
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
