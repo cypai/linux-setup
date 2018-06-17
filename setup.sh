@@ -10,6 +10,7 @@ if [ -d temp ]; then
 fi
 mkdir temp
 
+sudo add-apt-repository ppa:cwchien/gradle
 sudo apt update
 PACKAGES="git gitk vim xclip openjdk-8-jdk maven gradle ant python-pip python3-pip mc ncdu vlc p7zip-full etckeeper cmake g++ libwxgtk3.0-dev filezilla ncftp redshift redshift-gtk geoclue-2.0 htop unrar"
 echo "Installing packages: $PACKAGES"
