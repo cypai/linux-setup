@@ -3,6 +3,7 @@ Reference
 /dev/sdb: HDD
 
 Instructions:
+Start in legacy BIOS (do not use UEFI)
 Run GParted during ISO boot
 Create /dev/sda1 as ext2 with label "boot"
 Create /dev/sda2 as an Extended Partition
@@ -22,6 +23,15 @@ lvcreate -L 32G -n home lmsdd
 lvcreate -L 8G -n swap lmhdd
 lvcreate -L 16G -n tmp lmhdd
 lvcreate -L 16G -n var lmhdd
+
+You may need to unselect the swap partition and re-add it in /etc/fstab after installation, the installer might otherwise fail to use the swap partition correctly
+    sudo blkid /dev/mapper/lmhdd-swap  # obtain the UUID of swap partition
+    sudo vim /etc/fstab  # Uncomment the swapfile and add the UUID of the swap partition in its place
+Bootloader should be /dev/sda (NOT /dev/sda1, we are not using UEFI)
+/dev/sda1 should be mounted as /boot
+/dev/mapper/lmsdd-tmp should be mounted as /tmp, etc.
+/dev/mapper/lmsdd-home can be unmounted (installer might hang at "removing conflicting operating system files"), mount it in /etc/fstab after installation
+/dev/mapper/lmhdd-home should be mounted after installation
 
 Start installing Linux Mint:
 DON'T SELECT DEFAULT OPTIONS! Follow the partition setup as described above.
