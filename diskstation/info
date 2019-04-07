@@ -1,0 +1,67 @@
+sudo apt install gcc samba smbclient
+
+# Add group shared
+sudo groupadd shared
+
+# Add users tina, mei, chiyun
+sudo useradd tina
+sudo useradd mei
+sudo useradd chiyun
+
+# Add sudo permission to chiyun
+sudo adduser chiyun sudo
+
+# Add shared group to cpai, tina, mei, chiyun
+sudo usermod -a -G shared cpai
+sudo usermod -a -G shared tina
+sudo usermod -a -G shared mei
+sudo usermod -a -G shared chiyun
+
+# Add samba users
+sudo smbpasswd -a cpai
+sudo smbpasswd -a tina
+sudo smbpasswd -a mei
+sudo smbpasswd -a chiyun
+
+# Edit /etc/samba/smb.conf
+sudo echo <<EOF >> /etc/samba/smb.conf
+
+[cpai]
+   path = /home/cpai
+   valid users = cpai
+   read only = no
+
+[tina]
+   path = /home/tina
+   valid users = tina
+   read only = no
+
+[mei]
+   path = /home/mei
+   valid users = mei
+   read only = no
+
+[chiyun]
+   path = /home/chiyun
+   valid users = chiyun
+   read only = no
+
+[apps]
+   path = /home/apps
+   valid users = cpai, tina, mei, chiyun
+   read only = no
+EOF
+
+# Install netatalk (AFP)
+sudo apt install build-essential libevent-dev libssl-dev libgcrypt-dev libkrb5-dev libpam0g-dev libwrap0-dev libdb-dev libtdb-dev libmysqlclient-dev avahi-daemon libavahi-client-dev libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev libio-socket-inet6-perl tracker libtracker-sparql-2.0-dev libtracker-miner-2.0-dev
+# wget netatalk 3.1.11 from sourceforge
+# tar -zxf netatalk
+# cd netatalk
+# ./configure --with-initstyle=debian-systemd --without-libevent --without-tdb --with-cracklib --enable-krbV-uam --with-pam-confdir=/etc/pam.d --with-dbus-daemon=/usr/bin/dbus-daemon --with-dbus-sysconf-dir=/etc/dbus-1/system.d --with-tracker-pkgconfig-version=2.0
+# make
+# sudo make install
+# Check with:
+# netatalk -V
+# afpd -V
+# vim /usr/local/etc/afp.conf
+# Add shared directories there
