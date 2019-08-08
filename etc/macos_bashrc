@@ -1,0 +1,36 @@
+export PATH="/usr/local/bin:${PATH}"
+
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME} $(dirs)\007"'
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+export JAVA_OPTIONS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=800,suspend=n"
+export MAVEN_OPTS="-Xms512m -Xmx512m"
+
+alias crontab="crontab -i"
+alias aka="grep ^alias ~/.bashrc"
+alias down="cd ~/Downloads"
+alias doc="cd ~/Documents"
+alias music="cd ~/Music"
+alias l="ls -G"
+alias ls="ls -G"
+alias lah="ls -G -lah"
+alias cgit="cd ~/cgit"
+alias work="cd ~/work"
+
+alias src="source ~/.bashrc"
+
+alias dsfz="filezilla -c 0/ds"
+
+goto() {
+        cd ~/cgit/$1
+}
+_goto() {
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        COMPREPLY=( $(compgen -W "$(ls ~/cgit/)" -- $cur) )
+}
+complete -F _goto goto
