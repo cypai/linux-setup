@@ -1,35 +1,37 @@
 [alias]
-        aka = "!git config -l | grep alias | cut -c 7-"
-        amend = commit --amend
-        ac = "!git add . && git commit -am"
-        amc = "!git add . && git commit --amend"
-        cm = commit -m
-        cp = cherry-pick
-        cpcont = cherry-pick --continue
-        co = checkout
-        cof = checkout remotes/origin/master --
-        rb = rebase
-        rbm = rebase -i master
-        rbc = rebase --continue
-        rsth = reset --hard
-        undo = reset --soft HEAD~1
-        stat = status -s
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        lf = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%C(bold blue)\\ [%cn]\" --decorate --numstat
-        lastf = "!git lf -1"
-        prunem = "!git branch --merged | grep -v \"\\*\" | grep -v \"master\" | xargs -n 1 git branch -d"
-        rprune = fetch origin --prune
-        zap = "!git branch | grep -v \"\\*\" | grep -v \"master\" | grep -v '-' | xargs -n 1 git branch -D"
-        f = "!git ls-files | grep -i"
-        fl = log -u
-        s = status
-        d = diff
-        dfm = diff master HEAD
-        dfl = diff --cached HEAD^
-        dfs = diff --staged
-        dfc = "!f() { git diff "$1"^.."$1"; }; f"
-        grep = grep -Iirn
-        greprt = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+    aka = "!git config -l | grep alias | cut -c 7-"
+    amend = commit --amend
+    ac = "!git add . && git commit -am"
+    amc = "!git add . && git commit --amend"
+    cm = commit -m
+    cp = cherry-pick
+    cpcont = cherry-pick --continue
+    co = checkout
+    cof = checkout remotes/origin/master --
+    rb = rebase
+    rbm = rebase -i master
+    rbc = rebase --continue
+    rsth = reset --hard
+    undo = reset --soft HEAD~1
+    stat = status -s
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lf = log --pretty=format:\"%C(yellow)%h%Cred%d\\ %Creset%s%C(bold blue)\\ [%cn]\" --decorate --numstat
+    lastf = "!git lf -1"
+    prunem = "!git branch --merged | grep -v \"\\*\" | grep -v \"master\" | xargs -n 1 git branch -d"
+    rprune = fetch origin --prune
+    zap = "!git branch | grep -v \"\\*\" | grep -v \"master\" | grep -v '-' | xargs -n 1 git branch -D"
+    f = "!git ls-files | grep -i"
+    fl = log -u
+    s = status
+    d = diff
+    dfm = diff master HEAD
+    dfl = diff --cached HEAD^
+    dfs = diff --staged
+    dfc = "!f() { git diff "$1"^.."$1"; }; f"
+    grep = grep -Iirn
+    greprt = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+    p = push
+    pom = push origin master
 [user]
 	email = mail4charliepai@gmail.com
 	name = Cheng-Yu Pai
