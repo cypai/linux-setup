@@ -1,0 +1,27 @@
+call plug#begin()
+
+Plug 'tpope/vim-sensible'
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'klen/python-mode'
+
+Plug 'plasticboy/vim-markdown'
+
+Plug 'elixir-lang/vim-elixir'
+
+Plug 'slashmili/alchemist.vim'
+
+Plug 'scrooloose/nerdtree'
+
+Plug 'dense-analysis/ale'
+
+Plug 'airblade/vim-gitgutter'
+
+call plug#end()
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+map <C-o> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

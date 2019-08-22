@@ -39,11 +39,12 @@ fi
 #mkdir -p ~/.vim
 #rsync -a etc/vim/indent ~/.vim
 
-if [ -d ~/.vim_runtime ]; then
+if [ -f ~/.vimrc ]; then
     echo "Skipping install of vim runtime"
 else
-    git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-    sh ~/.vim_runtime/install_awesome_vimrc.sh
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    cp etc/vimrc ~/.vimrc
 fi
 
 cd $CURR_DIR
