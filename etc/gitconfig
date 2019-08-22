@@ -33,9 +33,9 @@
     p = push
     pom = push origin master
 [user]
-	email = mail4charliepai@gmail.com
-	name = Cheng-Yu Pai
+    email = mail4charliepai@gmail.com
+    name = Cheng-Yu Pai
 [core]
-	editor = vim
+    editor = vim
 [push]
-	default = current
+    default = current
