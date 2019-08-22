@@ -12,6 +12,8 @@ Plug 'elixir-lang/vim-elixir'
 
 Plug 'slashmili/alchemist.vim'
 
+Plug 'valloric/youcompleteme'
+
 Plug 'scrooloose/nerdtree'
 
 Plug 'dense-analysis/ale'
@@ -22,6 +24,12 @@ call plug#end()
 
 autocmd BufWritePre * :%s/\s\+$//e
 
+let g:pymode_options_colorcolumn = 0
+let g:pymode_folding = 0
+let g:pymode_rope = 0
+
+let g:ycm_python_binary_path = "/usr/bin/python3"
+
 map <C-o> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -29,3 +37,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set wildmode=longest,list,full
+set wildmenu
+
+let mapleader = " "
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
