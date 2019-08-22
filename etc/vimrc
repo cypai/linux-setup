@@ -38,4 +38,5 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>h :History<CR>
 nnoremap <leader>' ciw''<Esc>P
 nnoremap <leader>" ciw""<Esc>P
+nnoremap <leader>d daW"=substitute(@@,"'\\\|\"","","g")<CR>P
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
