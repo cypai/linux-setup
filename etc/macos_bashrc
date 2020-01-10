@@ -23,8 +23,12 @@ alias cgit="cd ~/cgit"
 alias work="cd ~/work"
 
 alias src="source ~/.bashrc"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+alias dkstop='docker stop $(docker ps -a -q)'
+alias dkrm='docker rm $(docker ps -a -q)'
 
-alias dsfz="filezilla -c 0/ds"
+alias pgdocker="docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres"
 
 goto() {
         cd ~/cgit/$1
@@ -34,3 +38,5 @@ _goto() {
         COMPREPLY=( $(compgen -W "$(ls ~/cgit/)" -- $cur) )
 }
 complete -F _goto goto
+
+eval "$(direnv hook bash)"
