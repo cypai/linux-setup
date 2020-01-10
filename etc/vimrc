@@ -4,8 +4,6 @@ Plug 'tpope/vim-sensible'
 
 Plug 'itchyny/lightline.vim'
 
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
 Plug 'elixir-lang/vim-elixir'
 
 Plug 'slashmili/alchemist.vim'
@@ -18,15 +16,16 @@ call plug#end()
 
 autocmd BufWritePre * :%s/\s\+$//e
 
-let g:pymode_options_colorcolumn = 0
-let g:pymode_folding = 0
-let g:pymode_rope = 0
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+set expandtab
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set softtabstop=4
+set autoindent
+set encoding=utf-8
+set fileformat=unix
+
+let python_highlight_all=1
+syntax on
 
 set wildmode=longest,list,full
 set wildmenu
