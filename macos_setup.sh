@@ -36,15 +36,12 @@ else
     echo "Please setup bash git prompt themes by running git_prompt_make_custom_theme and editing ~/.git-prompt-colors.sh"
 fi
 
-#mkdir -p ~/.vim
-#rsync -a etc/vim/indent ~/.vim
-
 if [ -f ~/.vimrc ]; then
     echo "Skipping install of vim runtime"
 else
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     cp etc/vimrc ~/.vimrc
+    echo "Remember to run :PlugInstall in vim"
 fi
 
 cd $CURR_DIR
