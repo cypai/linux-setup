@@ -4,11 +4,7 @@ Plug 'tpope/vim-sensible'
 
 Plug 'itchyny/lightline.vim'
 
-Plug 'elixir-lang/vim-elixir'
-
-Plug 'slashmili/alchemist.vim'
-
-Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Plug 'junegunn/fzf.vim'
 
